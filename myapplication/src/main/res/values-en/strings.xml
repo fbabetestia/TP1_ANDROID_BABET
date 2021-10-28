@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="nombre_1">Number 1</string>
+    <string name="nombre_2">Number 2</string>
+    <string name="calculer">Calcul</string>
+    <string name="link_compute_activity">Do a Calcul</string>
+</resources>
