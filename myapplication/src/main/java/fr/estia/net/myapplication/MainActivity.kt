@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_click_me -> {
                 // Toast.makeText(baseContext, "Tu m'as cliqué", Toast.LENGTH_LONG).show()
                 nbClick++
-                val newText = "Cliquez moi $nbClick"
+                val newText = getString(R.string.you_click, nbClick)
                 clickButton.text = newText
                 textClick.text = newText
                 if (nbClick == 5) {

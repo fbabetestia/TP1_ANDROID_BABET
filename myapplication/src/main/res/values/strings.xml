@@ -4,4 +4,6 @@
     <string name="nombre_2">Nombre 2</string>
     <string name="calculer">Calculer</string>
     <string name="link_compute_activity">Faire un calcul</string>
+    <string name="you_click">Vous avez cliquez %d</string>
+    <string name="click_me">Cliquez-moi</string>
 </resources>
