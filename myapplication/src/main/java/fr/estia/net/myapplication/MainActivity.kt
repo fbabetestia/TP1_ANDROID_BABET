@@ -3,24 +3,19 @@ package fr.estia.net.myapplication
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import fr.estia.net.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var clickButton: Button
-    private lateinit var textClick: TextView
-    private lateinit var linkCalculButton: Button
+    private lateinit var binding: ActivityMainBinding
     private var nbClick = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        clickButton = findViewById(R.id.btn_click_me)
-        textClick = findViewById(R.id.textview_click_me)
-        linkCalculButton = findViewById(R.id.link_calcul_activity)
-        clickButton.setOnClickListener(this)
-        linkCalculButton.setOnClickListener(this)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.btnClickMe.setOnClickListener(this)
+        binding.linkCalculActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -29,12 +24,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 // Toast.makeText(baseContext, "Tu m'as cliqué", Toast.LENGTH_LONG).show()
                 nbClick++
                 val newText = getString(R.string.you_click, nbClick)
-                clickButton.text = newText
-                textClick.text = newText
+                binding.btnClickMe.text = newText
+                binding.textviewClickMe.text = newText
                 if (nbClick == 5) {
 
-                    clickButton.isClickable = false
-                    clickButton.isEnabled = false
+                    binding.btnClickMe.isClickable = false
+                    binding.btnClickMe.isEnabled = false
                 }
             }
             R.id.link_calcul_activity -> {

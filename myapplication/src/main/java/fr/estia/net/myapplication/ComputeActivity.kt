@@ -8,25 +8,17 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import fr.estia.net.myapplication.databinding.ComputeActivityBinding
 
 class ComputeActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
-    private lateinit var calculInput1: EditText
-    private lateinit var calculInput2: EditText
-    private lateinit var calculButton: Button
-    private lateinit var resultatTextview: TextView
+    private lateinit var binding: ComputeActivityBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.compute_activity)
-        calculButton = findViewById(R.id.btn_calculer)
-        calculInput1 = findViewById(R.id.field_1)
-        calculInput2 = findViewById(R.id.field_2)
-        resultatTextview = findViewById(R.id.resultat)
-
-        calculInput1.addTextChangedListener(this)
-        calculInput2.addTextChangedListener(this)
-
-        calculButton.setOnClickListener(this)
+        binding = ComputeActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.field1.addTextChangedListener(this)
+        binding.field2.addTextChangedListener(this)
+        binding.btnCalculer.setOnClickListener(this)
     }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -36,12 +28,12 @@ class ComputeActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     }
 
     override fun afterTextChanged(s: Editable?) {
-        calculButton.isEnabled = calculInput1.text.isNotBlank() && calculInput2.text.isNotBlank()
+        binding.btnCalculer.isEnabled = binding.field1.text.isNotBlank() && binding.field2.text.isNotBlank()
     }
 
     override fun onClick(v: View?) {
         var result = 0.0
-        result = calculInput1.text.toString().toDouble() + calculInput2.text.toString().toDouble()
-        resultatTextview.text = result.toString()
+        result = binding.field1.text.toString().toDouble() + binding.field2.text.toString().toDouble()
+        binding.resultat.text = result.toString()
     }
 }
