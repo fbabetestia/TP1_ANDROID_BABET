@@ -27,9 +27,6 @@ class ComputeActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         calculInput2.addTextChangedListener(this)
 
         calculButton.setOnClickListener(this)
-
-
-
     }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -40,15 +37,11 @@ class ComputeActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
     override fun afterTextChanged(s: Editable?) {
         calculButton.isEnabled = calculInput1.text.isNotBlank() && calculInput2.text.isNotBlank()
-
-
-
     }
 
     override fun onClick(v: View?) {
-        var result=0.0
+        var result = 0.0
         result = calculInput1.text.toString().toDouble() + calculInput2.text.toString().toDouble()
         resultatTextview.text = result.toString()
-
     }
 }
