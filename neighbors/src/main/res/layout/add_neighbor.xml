@@ -156,7 +156,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/form_save"
-        android:enabled="false"
         android:layout_margin="20dp"
 
         />

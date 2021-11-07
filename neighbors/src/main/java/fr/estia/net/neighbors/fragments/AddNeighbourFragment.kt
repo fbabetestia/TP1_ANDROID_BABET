@@ -39,12 +39,6 @@ class AddNeighbourFragment : Fragment(), TextWatcher, View.OnClickListener {
         formAbout = view.findViewById(R.id.edit_about)
         formButton = view.findViewById(R.id.form_save)
 
-        formImage.addTextChangedListener(this)
-        formName.addTextChangedListener(this)
-        formTelephone.addTextChangedListener(this)
-        formWebste.addTextChangedListener(this)
-        formAdresse.addTextChangedListener(this)
-        formAbout.addTextChangedListener(this)
         (activity as? NavigationListener)?.updateTitle(R.string.nouv_voisin)
         formButton.setOnClickListener(this)
 
@@ -60,8 +54,7 @@ class AddNeighbourFragment : Fragment(), TextWatcher, View.OnClickListener {
     }
 
     override fun afterTextChanged(s: Editable?) {
-        formButton.isEnabled =
-            formImage.text!!.isNotBlank() && formAbout.text!!.isNotBlank() && formName.text!!.isNotBlank() && formTelephone.text!!.isNotBlank() && formWebste.text!!.isNotBlank() && formAdresse.text!!.isNotBlank()
+        TODO("Not yet implemented")
     }
 
     override fun onClick(v: View?) {
