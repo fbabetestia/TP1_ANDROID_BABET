@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">neighbors</string>
+    <string name="dialog_fire_missiles">Delete</string>
+    <string name="fire">Yes</string>
+    <string name="cancel">No</string>
+    <string name="form_username">Lastname</string>
+    <string name="form_image">Image</string>
+    <string name="form_name">Name</string>
+    <string name="form_telephone">Phone</string>
+    <string name="form_webste">Website</string>
+    <string name="form_adresse">Adress</string>
+    <string name="form_about">About Me</string>
+    <string name="form_save">Save</string>
+    <string name="liste_voisin">List of neighbor</string>
+    <string name="nouv_voisin">New neighbor</string>
+</resources>

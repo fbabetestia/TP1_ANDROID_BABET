@@ -3,4 +3,14 @@
     <string name="dialog_fire_missiles">Suppression</string>
     <string name="fire">Oui</string>
     <string name="cancel">Non</string>
+    <string name="form_username">Nom</string>
+    <string name="form_image">Image</string>
+    <string name="form_name">Nom</string>
+    <string name="form_telephone">Téléphone</string>
+    <string name="form_webste">Website</string>
+    <string name="form_adresse">Adresse</string>
+    <string name="form_about">A propos de moi</string>
+    <string name="form_save">Enregistrer</string>
+    <string name="liste_voisin">Liste des voisins</string>
+    <string name="nouv_voisin">Nouveau voisin</string>
 </resources>

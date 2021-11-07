@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import fr.estia.net.neighbors.NavigationListener
 import fr.estia.net.neighbors.R
 import fr.estia.net.neighbors.adapters.ListNeighborHandler
 import fr.estia.net.neighbors.adapters.ListNeighborsAdapter
@@ -22,6 +24,7 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
      */
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var addNeighbor: FloatingActionButton
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,6 +40,13 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
             )
 
         )
+        (activity as? NavigationListener)?.updateTitle(R.string.liste_voisin)
+        addNeighbor = view.findViewById(R.id.addNeighbor)
+        addNeighbor.setOnClickListener {
+            (activity as? NavigationListener)?.let {
+                it.showFragment(AddNeighbourFragment())
+            }
+        }
         return view
     }
 
@@ -60,15 +70,19 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
             // Use the Builder class for convenient dialog construction
             val builder = AlertDialog.Builder(it)
             builder.setMessage(R.string.dialog_fire_missiles)
-                .setPositiveButton(R.string.fire,
+                .setPositiveButton(
+                    R.string.fire,
                     DialogInterface.OnClickListener { dialog, id ->
                         NeighborRepository.getInstance().removeNeighbour(neighbor)
                         refresh()
-                    })
-                .setNegativeButton(R.string.cancel,
+                    }
+                )
+                .setNegativeButton(
+                    R.string.cancel,
                     DialogInterface.OnClickListener { dialog, id ->
                         // User cancelled the dialog
-                    })
+                    }
+                )
             // Create the AlertDialog object and return it
             builder.create().show()
         }
